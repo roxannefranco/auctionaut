@@ -9,6 +9,7 @@ export default defineConfig({
   // Allows better structure inside src folder
   root: 'src',
   build: {
+    outDir: '../dist',
     // Config to build the necessary pages
     rollupOptions: {
       input: {
