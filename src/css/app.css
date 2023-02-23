@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.center-content {
+  max-width: 1180px;
+  width: calc(100% - 40px);
+  @apply mx-auto;
+}
+
+.search-input {
+  @apply rounded-full bg-slate-200 pl-10;
+  height: 36px;
+}
+
+.search-icon {
+  @apply absolute left-3;
+  top: 8px;
+}
+
+.register-button {
+  @apply rounded-full bg-violet-700;
+  display: inline-block;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+}
