@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --textfont: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--textfont);
+}
+
 .center-content {
   max-width: 1180px;
-  width: calc(100% - 40px);
+  width: calc(100% - 20px);
   @apply mx-auto;
 }
 
 .search-input {
-  @apply rounded-full bg-slate-200 pl-10;
+  @apply rounded-full bg-slate-200 pl-10 focus:outline-none w-full;
   height: 36px;
 }
 
@@ -18,10 +28,14 @@
   top: 8px;
 }
 
-.register-button {
-  @apply rounded-full bg-violet-700;
-  display: inline-block;
-  height: 40px;
-  color: white;
-  font-size: 14px;
+.btn {
+  @apply rounded-full flex px-3 sm:px-5 sm:ml-1 h-[32px] sm:h-[40px] text-sm cursor-pointer items-center justify-center ease-linear duration-150;
+}
+
+.btn-primary {
+  @apply bg-violet-700 text-white hover:bg-violet-900;
+}
+
+.btn-secondary {
+  @apply bg-white text-slate-600 hover:bg-slate-200;
 }
