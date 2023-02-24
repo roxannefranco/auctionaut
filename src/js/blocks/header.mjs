@@ -1,5 +1,5 @@
-import { search } from './icons'
-import logo from './logo'
+import { search } from './icons.mjs'
+import logo from './logo.mjs'
 
 // selecting header element
 const header = document.querySelector('header')
