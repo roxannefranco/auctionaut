@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: var(--textfont);
+  font-family: var(--textfont) !important;
 }
 
 .center-content {
@@ -38,4 +38,8 @@ body {
 
 .btn-secondary {
   @apply bg-white text-slate-600 hover:bg-slate-200;
+}
+
+.inputs {
+  @apply text-slate-500 h-10 w-80 rounded-md border block outline-none px-2 focus:border-violet-500 focus:shadow focus:shadow-violet-200;
 }

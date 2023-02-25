@@ -16,7 +16,7 @@ header.innerHTML = `
                 </div>
             </div>
             <div class="flex items-center ml-auto">
-                <a class="btn btn-secondary">Sign in</a>
+                <a href="login.html" class="btn btn-secondary">Sign in</a>
                 <a href="#" class="btn btn-primary">Register</a>
             </div>
         </div>

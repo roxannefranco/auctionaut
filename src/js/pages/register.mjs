@@ -1,7 +1,8 @@
 import '../../css/app.css'
 import {
   email as emailIcon,
-  password as passwordIcon
+  password as passwordIcon,
+  username as usernameIcon
 } from '../blocks/icons.mjs'
 
 // Select logo element and add as svg
@@ -29,3 +30,11 @@ emailContainer.innerHTML = emailIcon
 // Select password span to add icon
 const passwordContainer = document.querySelector('#password-icon')
 passwordContainer.innerHTML = passwordIcon
+
+// Select repeat span to add icon
+const repeatContainer = document.querySelector('#repeat-icon')
+repeatContainer.innerHTML = passwordIcon
+
+// Select username span to add icon
+const usernameContainer = document.querySelector('#username-icon')
+usernameContainer.innerHTML = usernameIcon
