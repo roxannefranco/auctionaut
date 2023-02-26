@@ -45,7 +45,7 @@ body {
 }
 
 .banner-container {
-  @apply flex flex-1 items-center justify-center bg-violet-900 rounded-r-[40px] relative;
+  @apply flex flex-1 items-center justify-center bg-violet-900 py-20 md:py-0 md:rounded-r-[40px] relative;
 }
 
 .banner-bg {
@@ -53,9 +53,13 @@ body {
 }
 
 .banner-title {
-  @apply text-5xl text-white font-bold text-center w-96;
+  @apply text-3xl md:text-5xl text-white font-bold text-center px-4 md:w-96;
 }
 
 .banner-slogan {
   @apply text-white pt-7;
+}
+
+.error {
+  @apply text-red-500 mt-3 font-bold;
 }

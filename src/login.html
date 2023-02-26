@@ -8,16 +8,16 @@
   </head>
 
   <body>
-    <div id="auth-section" class="flex h-screen">
+    <div id="auth-section" class="md:flex md:h-screen">
       <!--LEFT SECTION-->
 
       <!--RIGHT SECTION-->
-      <div class="flex-1 flex items-center justify-center">
+      <form class="flex-1 flex items-center justify-center">
         <div class="max-w-[320px]">
-          <div id="logo" class="mb-16 text-center"></div>
+          <div id="logo" class="mt-8 md:mt-0 md:mb-16 text-center"></div>
 
           <!--EMAIL INPUT-->
-          <div class="mb-4 relative">
+          <div class="mt-4 mb-4 relative">
             <label class="text-slate-500 mb-1 block">Email</label>
             <input type="email" required class="inputs" />
             <span
@@ -49,7 +49,7 @@
             >
           </p>
         </div>
-      </div>
+      </form>
     </div>
 
     <script type="module" src="js/blocks/authBanner.mjs"></script>

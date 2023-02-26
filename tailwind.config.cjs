@@ -5,5 +5,5 @@ module.exports = {
     extend: {}
   },
   plugins: [],
-  safelist: ['inline-block', 'bg-violet-900']
+  safelist: ['inline-block']
 }

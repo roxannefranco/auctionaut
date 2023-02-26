@@ -1,9 +1,15 @@
 import '../../css/app.css'
+import { checkAuth } from '../functions.mjs'
+import postRegister from '../api/register.mjs'
 import {
   email as emailIcon,
   password as passwordIcon,
   username as usernameIcon
 } from '../blocks/icons.mjs'
+
+function runRegister() {
+  checkAuth()
+}
 
 // Select logo element and add as svg
 const logo = document.querySelector('#logo')
@@ -38,3 +44,52 @@ repeatContainer.innerHTML = passwordIcon
 // Select username span to add icon
 const usernameContainer = document.querySelector('#username-icon')
 usernameContainer.innerHTML = usernameIcon
+
+const form = document.querySelector('#form')
+
+form.onsubmit = function (event) {
+  // prevention default submission occurs'
+  event.preventDefault()
+  // select and hidde errors container
+  const errorsContainer = document.querySelector('#errors')
+  errorsContainer.classList.add('hidden')
+  // get password inputs
+  const password = document.querySelector('#password')
+  const passwordRepeat = document.querySelector('#password-repeat')
+  // check if both values are equal
+  if (password.value === passwordRepeat.value) {
+    registerNew()
+  } else {
+    errorsContainer.innerHTML += `<p>Passwords don't match.</p>`
+    errorsContainer.classList.remove('hidden')
+  }
+}
+
+/**
+ * Register new User
+ */
+async function registerNew() {
+  const username = document.querySelector('#username')
+  const email = document.querySelector('#email-login')
+  const password = document.querySelector('#password')
+  const data = {
+    name: username.value,
+    email: email.value,
+    password: password.value
+  }
+  const response = await postRegister(data)
+
+  if ('errors' in response) {
+    const errorsRegister = document.querySelector('#errors-server')
+    errorsRegister.classList.remove('hidden')
+    const { errors } = response
+    errorsRegister.innerHTML = ''
+    errors.map(function (error) {
+      const { message } = error
+      errorsRegister.innerHTML += `<p>${message}</p>`
+    })
+  } else {
+    // if response is ok redirect to log in page
+    window.location.replace('/login.html')
+  }
+}
