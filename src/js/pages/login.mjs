@@ -33,7 +33,7 @@ passwordContainer.innerHTML = passwordIcon
 import { checkAuth } from '../functions.mjs'
 import postLogin from '../api/login.mjs'
 
-export default function runLogin() {
+function runLogin() {
   checkAuth()
 
   const form = document.querySelector('#login-form')
@@ -80,3 +80,5 @@ export default function runLogin() {
     }
   }
 }
+
+runLogin()
