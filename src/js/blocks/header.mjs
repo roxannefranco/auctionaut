@@ -1,4 +1,4 @@
-import { getUser } from '../functions.mjs'
+import { getUser, getAvatar } from '../functions.mjs'
 import { search, credits } from './icons.mjs'
 import logo from './logo.mjs'
 
@@ -6,11 +6,13 @@ const user = getUser()
 
 let actionsContent = ``
 if (user != null) {
+  const avatar = getAvatar()
+
   actionsContent = `
     <span class="credits">${credits}${user.credits}</span>
     <a href="#" class="btn btn-primary new-listing">New Listing</a>
     <div>
-        <img id="current-avatar" alt="user profile pic" class="rounded-full object-cover w-10 h-10" src="https://avatars.githubusercontent.com/u/50967213?v=4">
+        <img alt="user profile pic" class="rounded-full object-cover w-10 h-10" src="${avatar}">
     </div>`
 } else {
   actionsContent = ` 

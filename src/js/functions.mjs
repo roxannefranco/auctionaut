@@ -38,3 +38,15 @@ export function getUser() {
   // parses user string to object
   return JSON.parse(user)
 }
+
+/**
+ * Get user's avatar if one was provided
+ */
+export function getAvatar() {
+  const user = getUser()
+  if (user.avatar != null && user.avatar != '') {
+    return user.avatar
+  } else {
+    return '/img/noavatar.jpg'
+  }
+}
