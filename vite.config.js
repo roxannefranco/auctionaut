@@ -13,8 +13,9 @@ export default defineConfig({
     // Config to build the necessary pages
     rollupOptions: {
       input: {
-        index: resolve(__dirname, 'src/index.html'),
-        login: resolve(__dirname, 'src/login.html')
+        main: resolve(__dirname, 'src/index.html'),
+        login: resolve(__dirname, 'src/login.html'),
+        register: resolve(__dirname, 'src/register.html')
       }
     }
   }
