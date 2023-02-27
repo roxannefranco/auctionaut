@@ -63,3 +63,15 @@ body {
 .error {
   @apply text-red-500 mt-3 font-bold;
 }
+
+.user-actions {
+  @apply flex items-center ml-auto;
+}
+
+.logo-desktop {
+  @apply hidden sm:block;
+}
+
+.logo-mobile {
+  @apply block sm:hidden;
+}

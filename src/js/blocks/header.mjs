@@ -15,7 +15,7 @@ header.innerHTML = `
                     <span class="search-icon">${search}</span>
                 </div>
             </div>
-            <div class="flex items-center ml-auto">
+            <div class="user-actions">
                 <a href="login.html" class="btn btn-secondary">Sign in</a>
                 <a href="#" class="btn btn-primary">Register</a>
             </div>
