@@ -75,3 +75,7 @@ body {
 .logo-mobile {
   @apply block sm:hidden;
 }
+
+.search-input-container {
+  @apply relative ml-2 sm:ml-6 max-w-[165px] sm:max-w-[240px];
+}
