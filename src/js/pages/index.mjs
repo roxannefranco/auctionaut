@@ -11,7 +11,19 @@ async function loadAndInsertListings() {
   console.log(listings)
   listings.map(function (listing) {
     listingsContainer.innerHTML += `
-        <div>${listing.title}</div>
+    <div class="listing-container">
+      <div class="listing-content">
+        <div>
+          <img src="${listing.media[0]}" alt="${listing.title}">
+          <h3>${listing.title}</h3>
+          <p>${listing.description}</p>
+            <div>
+              <span>${listing.seller.avatar}</span>
+              <span>${listing.seller.name}</span>
+            </div>
+        </div>
+      </div>
+    </div>
     `
   })
 }

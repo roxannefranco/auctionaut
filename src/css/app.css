@@ -87,3 +87,12 @@ body {
 .btn-primary.new-listing {
   @apply mr-4 fixed bottom-4 right-4 sm:static px-5 h-[40px];
 }
+
+.listing-container {
+  @apply border border-slate-200 rounded-lg;
+  width: calc(100% / 3 - (60px / 3));
+}
+
+.listing-content {
+  @apply p-3;
+}

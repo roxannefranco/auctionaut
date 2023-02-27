@@ -5,12 +5,15 @@ import { apiUrl } from '../config.mjs'
  */
 export default async function getListings() {
   try {
-    const response = await fetch(`${apiUrl}/listings?_tag=gamernaut`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
+    const response = await fetch(
+      `${apiUrl}/listings?_tag=gamernaut&_seller=true`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
-    })
+    )
     const data = await response.json()
     return data
   } catch (e) {
