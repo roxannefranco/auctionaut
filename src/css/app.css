@@ -18,6 +18,10 @@ body {
   @apply mx-auto;
 }
 
+.search-input-container {
+  @apply relative ml-2 sm:ml-6 max-w-[165px] sm:max-w-[200px] md:max-w-[280px];
+}
+
 .search-input {
   @apply rounded-full bg-slate-200 pl-10 focus:outline-none w-full;
   height: 36px;
@@ -68,6 +72,10 @@ body {
   @apply flex items-center ml-auto;
 }
 
+.user-actions .credits {
+  @apply flex text-violet-700 font-bold items-center gap-1 mr-4;
+}
+
 .logo-desktop {
   @apply hidden sm:block;
 }
@@ -76,6 +84,6 @@ body {
   @apply block sm:hidden;
 }
 
-.search-input-container {
-  @apply relative ml-2 sm:ml-6 max-w-[165px] sm:max-w-[240px];
+.btn-primary.new-listing {
+  @apply mr-4 fixed bottom-4 right-4 sm:static px-5 h-[40px];
 }

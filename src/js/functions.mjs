@@ -19,3 +19,22 @@ export function checkNotAuth() {
     window.location.replace('/login.html')
   }
 }
+
+/**
+ * Get token
+ * @returns {string} token - prefixed access token to authorize users
+ */
+export function getToken() {
+  const token = localStorage.getItem('accessToken')
+  return `Bearer ${token}`
+}
+
+/**
+ * Get user
+ * @returns {object} user
+ */
+export function getUser() {
+  const user = localStorage.getItem('user')
+  // parses user string to object
+  return JSON.parse(user)
+}
