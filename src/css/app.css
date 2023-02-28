@@ -12,6 +12,18 @@ body {
   font-family: var(--textfont) !important;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 .center-content {
   max-width: 1180px;
   width: calc(100% - 20px);
@@ -34,6 +46,10 @@ body {
 
 .btn {
   @apply rounded-full flex px-3 sm:px-5 sm:ml-1 h-[32px] sm:h-[40px] text-sm cursor-pointer items-center justify-center ease-linear duration-150;
+}
+
+.btn-small {
+  @apply px-3 sm:h-[32px];
 }
 
 .btn-primary {
@@ -91,8 +107,72 @@ body {
 .listing-container {
   @apply border border-slate-200 rounded-lg;
   width: calc(100% / 3 - (60px / 3));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .listing-container {
+    width: calc(100% / 2 - (30px / 2));
+  }
+}
+
+@media (max-width: 640px) {
+  .listing-container {
+    width: 100%;
+  }
 }
 
 .listing-content {
   @apply p-3;
+}
+
+.title-primary {
+  @apply text-slate-600 font-bold;
+}
+
+.listing-bio {
+  @apply text-slate-500 text-sm;
+}
+
+.listings-avatar {
+  @apply rounded-full object-cover w-8 h-8 mr-2;
+}
+
+.listings-details {
+  @apply text-slate-700 font-medium;
+}
+
+.listing-img {
+  @apply mb-4 leading-3 rounded-lg w-full;
+}
+
+.listing-bidding {
+  @apply border-t border-slate-200 p-3 flex justify-between;
+}
+
+.listing-left,
+.listing-right {
+  @apply flex items-center gap-2;
+}
+
+.listing-credit {
+  @apply font-bold text-violet-600;
+}
+
+.bid-input {
+  @apply relative;
+}
+
+.bid-input input {
+  @apply rounded-full border h-[38px] text-violet-500 font-bold text-sm pl-10 pr-20 inline-block box-border w-[160px] outline-none focus:border-slate-400;
+}
+
+.bid-input svg {
+  @apply absolute left-3 top-1;
+}
+
+.bid-input button {
+  @apply absolute right-1 top-[3px];
 }

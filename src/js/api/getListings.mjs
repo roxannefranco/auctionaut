@@ -6,7 +6,7 @@ import { apiUrl } from '../config.mjs'
 export default async function getListings() {
   try {
     const response = await fetch(
-      `${apiUrl}/listings?_tag=gamernaut&_seller=true`,
+      `${apiUrl}/listings?_tag=gamernaut&_seller=true&_bids=true`,
       {
         method: 'GET',
         headers: {
