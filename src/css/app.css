@@ -145,7 +145,8 @@ input[type='number'] {
 }
 
 .listing-img {
-  @apply mb-4 leading-3 rounded-lg w-full;
+  @apply mb-4 leading-3 rounded-lg w-full object-cover object-center;
+  max-height: 260px;
 }
 
 .listing-bidding {

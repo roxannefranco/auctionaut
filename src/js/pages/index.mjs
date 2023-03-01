@@ -1,73 +1,54 @@
 import '../../css/app.css'
 import getListings from '../api/getListings.mjs'
-import { getUser } from '../functions.mjs'
-import { credits } from '../blocks/icons.mjs'
+import addBid from '../api/addBid.mjs'
+import listingPanel from '../blocks/listingPanel.mjs'
 
-async function loadAndInsertListings() {
+const filterContainer = document.querySelector('#filter')
+filterContainer.onchange = function (event) {
+  loadAndInsertListings(event.target.value)
+}
+
+/**
+ * Loads listings and loops through each
+ */
+async function loadAndInsertListings(filter) {
   // Get listings from API
-  const listings = await getListings()
+  const listings = await getListings(filter)
 
   // insert listings into HTML
   const listingsContainer = document.querySelector('#listings-container')
 
+  listingsContainer.innerHTML = ''
+
   listings.map(function (listing) {
-    // Check the amount of last bid
-    const lastBid = listing._count.bids - 1
-    let amount = 0
-    if (lastBid >= 0) {
-      amount = listing.bids[lastBid].amount
-    }
-
-    // Check if user is authenticated
-    let bidContent = ''
-    const user = getUser()
-
-    if (user != null) {
-      bidContent = `<div class="listing-left">
-      <span class="text-slate-500">${listing._count.bids} bids</span>
-    </div>
-
-    <div class="listing-right">
-      <div class="bid-input">
-        <span class="credits">${credits}</span>
-        <input type="number" min="${amount + 1}" value="${amount + 1}">
-        <button class="btn btn-primary btn-small">Bid now</button>
-      </div>
-    </div>`
-    } else {
-      bidContent = `<div class="listing-left">
-      <a class="btn btn-primary btn-small" href="login.html">Login to Bid</a>
-      <span class="text-slate-500">${listing._count.bids} bids</span>
-    </div>
-
-    <div class="listing-right">
-      <span class="credits">${credits}</span>
-      <span class="listing-credit">${amount}</span>
-    </div>`
-    }
-
     // Add everything to html
-    listingsContainer.innerHTML += `
-    <div class="listing-container">
-
-      <div class="listing-content">
-        <img class="listing-img" src="${listing.media[0]}" alt="${listing.title}">
-        <h3 class="title-primary">${listing.title}</h3>
-        <p class="listing-bio">${listing.description}</p>
-        <div class="flex items-center mt-3">
-          <img class="listings-avatar" src="${listing.seller.avatar}" alt="${listing.title}">
-          <span class="listings-details">@${listing.seller.name}</span>
-        </div>  
-      </div>
-
-      <div class="listing-bidding">
-        ${bidContent}
-      </div>
-        
-      </div>
-    </div>
-    `
+    listingsContainer.innerHTML += listingPanel(listing)
   })
+
+  setOnClick()
 }
 
-loadAndInsertListings()
+loadAndInsertListings(1)
+
+/**
+ * sets onclick events for new bid btns
+ */
+function setOnClick() {
+  const bidBtns = document.querySelectorAll('.bid-btn')
+  bidBtns.forEach(function (btn) {
+    btn.onclick = async function () {
+      const id = btn.dataset.id
+      const input = document.querySelector(`[data-id="${id}"]`)
+      const amount = input.value
+      const data = await addBid(id, amount)
+
+      // Check for errors
+      if ('errors' in data && data.errors.length) {
+        window.alert(data.errors[0].message)
+      } else {
+        loadAndInsertListings()
+        window.alert('Nice! You have the latest bid!')
+      }
+    }
+  })
+}
