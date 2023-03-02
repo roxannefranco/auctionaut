@@ -177,3 +177,7 @@ input[type='number'] {
 .bid-input button {
   @apply absolute right-1 top-[3px];
 }
+
+.select {
+  @apply bg-transparent appearance-none cursor-pointer text-slate-500 h-10 w-48 rounded-md border block outline-none px-2 mb-4 focus:border-violet-500 focus:shadow focus:shadow-violet-200;
+}
