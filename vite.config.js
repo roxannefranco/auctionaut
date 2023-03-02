@@ -8,6 +8,7 @@ export default defineConfig({
   server: { port: 8000 },
   // Allows better structure inside src folder
   root: 'src',
+  publicDir: 'public',
   build: {
     outDir: '../dist',
     // Config to build the necessary pages
