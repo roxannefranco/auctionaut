@@ -46,7 +46,8 @@ function setOnClick() {
       if ('errors' in data && data.errors.length) {
         window.alert(data.errors[0].message)
       } else {
-        loadAndInsertListings()
+        const filter = document.querySelector('#filter')
+        loadAndInsertListings(filter.value)
         window.alert('Nice! You have the latest bid!')
       }
     }
