@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | Gamernaut</title>
+  </head>
+
+  <body>
+    <!--HEADER: loaded by js-->
+    <header class="border-b border-slate-200 py-3"></header>
+
+    <div class="center-content">
+      <div class="lg:flex gap-10 mt-8">
+        <!--LEFT SIDE-->
+        <div class="profile-container">
+          <div class="rounded border pt-10 text-center">
+            <img
+              id="avatar"
+              alt="user profile pic"
+              class="rounded-full object-cover w-[130px] h-[130px] inline-block mb-10"
+              src="/img/noavatar.jpg"
+            />
+            <p id="username" class="mb-1 text-xl font-bold text-slate-600">
+              user name
+            </p>
+            <p id="email" class="text-slate-500 mb-10">user email</p>
+
+            <div id="logged-user-actions" class="flex border-t">
+              <!--CHANGE AVATAR-->
+              <button
+                id="change-avatar"
+                class="flex-1 border-r py-4 text-slate-500 hover:bg-slate-100"
+              >
+                Change avatar
+              </button>
+              <!--LOG OUT-->
+              <button
+                id="logout"
+                class="flex-1 py-4 text-slate-500 hover:bg-slate-100"
+              >
+                Log out
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!--LISTINGS SIDE-->
+        <div class="listings-side">
+          <h1 class="main-title">Listings</h1>
+          <div id="listings" class="flex flex-wrap gap-[30px]"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/blocks/header.mjs"></script>
+    <script type="module" src="js/pages/profile.mjs"></script>
+  </body>
+</html>

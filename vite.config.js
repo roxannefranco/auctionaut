@@ -16,7 +16,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'src/index.html'),
         login: resolve(__dirname, 'src/login.html'),
-        register: resolve(__dirname, 'src/register.html')
+        register: resolve(__dirname, 'src/register.html'),
+        profile: resolve(__dirname, 'src/profile.html')
       }
     }
   }
