@@ -1,7 +1,8 @@
 import '../../css/app.css'
 import getListings from '../api/getListings.mjs'
 import addBid from '../api/addBid.mjs'
-import listingPanel from '../blocks/listingPanel.mjs'
+import { listingPanel } from '../blocks/listingPanel.mjs'
+import { updateDeadline } from '../functions.mjs'
 
 const filterContainer = document.querySelector('#filter')
 filterContainer.onchange = function (event) {
@@ -53,3 +54,5 @@ function setOnClick() {
     }
   })
 }
+
+updateDeadline()

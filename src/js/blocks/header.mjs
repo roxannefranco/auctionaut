@@ -12,7 +12,7 @@ if (user != null) {
     <span class="credits">${credits}${user.credits}</span>
     <a href="#" class="btn btn-primary new-listing">New Listing</a>
     <div>
-        <img alt="user profile pic" class="rounded-full object-cover w-10 h-10" src="${avatar}">
+        <a href="profile.html?name=${user.name}"><img id="header-avatar" alt="user profile pic" src="${avatar}"></a>
     </div>`
 } else {
   actionsContent = ` 
@@ -28,7 +28,7 @@ header.innerHTML = `
     <div class="center-content">
         <div class="flex items-center">
             <div class="flex items-center">
-                <a class="cursor-pointer"href="#">${logo}</a>
+                <a class="cursor-pointer"href="index.html">${logo}</a>
                 <div class="search-input-container">
                     <input id="search" class="search-input" placeholder="Search" />
                     <span class="search-icon">${search}</span>

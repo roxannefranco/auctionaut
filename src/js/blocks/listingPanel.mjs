@@ -6,7 +6,7 @@ import { credits } from '../blocks/icons.mjs'
  * @param {*} listing
  * @returns
  */
-export default function listingPanel(listing) {
+export function listingPanel(listing) {
   // Check the amount of last bid
   let amount = 0
   if (listing._count.bids) {
@@ -57,30 +57,120 @@ export default function listingPanel(listing) {
     avatar = listing.seller.avatar
   }
 
+  // Check if listing has media
+  let media = '/img/nomedia.jpg'
+  if (listing.media.length) {
+    media = listing.media[0]
+  }
+
   // Short description
   let description = listing.description
   if (description.length > 97) {
     description = description.slice(0, 97) + '...'
   }
 
+  // find initial time
+  const deadline = findTime(listing.endsAt)
+
   return `
     <div class="listing-container">
 
       <div class="listing-content">
-        <img class="listing-img" src="${listing.media[0]}" alt="${listing.title}">
+        <img class="listing-img" src="${media}" alt="${listing.title}">
         <h3 class="title-primary">${listing.title}</h3>
         <p class="listing-bio">${description}</p>
-        <div class="flex items-center mt-3">
+        <a href="profile.html?name=${listing.seller.name}" class="seller-link">
           <img class="listings-avatar" src="${avatar}" alt="${listing.seller.name}">
           <span class="listings-details">@${listing.seller.name}</span>
-        </div>  
+        </a>  
+      </div>
+
+      <div class="listing-timer">
+        <span class="text-slate-500 text-sm">Ends in:</span>
+        <span class="text-slate-500 font-bold text-sm deadline" data-end="${listing.endsAt}">
+          <span class="days">${deadline.days}</span><span>:</span><span class="hours">${deadline.hours}</span><span>:</span><span class="minutes">${deadline.minutes}</span><span>:</span><span class="seconds">${deadline.seconds}</span>
+        </span>
       </div>
 
       <div class="listing-bidding">
         ${bidContent}
       </div>
-        
+    </div>
+    `
+}
+
+/**
+ * Handels logic for listing a simplified panel
+ * @param {*} listing
+ * @returns
+ */
+export function listingPanelSimplified(listing, profile) {
+  // Check if user has avatar
+  let avatar = '/img/noavatar.jpg'
+  if (profile.avatar != '' && profile.avatar != null) {
+    avatar = profile.avatar
+  }
+
+  // Check if listing has media
+  let media = '/img/nomedia.jpg'
+  if (listing.media.length) {
+    media = listing.media[0]
+  }
+
+  // Short description
+  let description = listing.description
+  if (description.length > 97) {
+    description = description.slice(0, 97) + '...'
+  }
+
+  // find initial time
+  const deadline = findTime(listing.endsAt)
+
+  return `
+    <div class="listing-container listing-container-profile">
+
+      <div class="listing-content">
+        <img class="listing-img" src="${media}" alt="${listing.title}">
+        <h3 class="title-primary">${listing.title}</h3>
+        <p class="listing-bio">${description}</p>
+        <div class="flex items-center mt-3">
+          <img class="listings-avatar" src="${avatar}" alt="${profile.name}">
+          <span class="listings-details">@${profile.name}</span>
+        </div>  
+      </div>
+
+      <div class="listing-timer">
+        <span class="text-slate-500 text-sm">Ends in:</span>
+        <span class="text-slate-500 font-bold text-sm deadline" data-end="${listing.endsAt}">
+          <span class="days">${deadline.days}</span><span>:</span><span class="hours">${deadline.hours}</span><span>:</span><span class="minutes">${deadline.minutes}</span><span>:</span><span class="seconds">${deadline.seconds}</span>
+        </span>
       </div>
     </div>
     `
+}
+
+/**
+ * Calculates listing deadline
+ * @param {string} endsAt
+ * @returns
+ */
+export function findTime(endsAt) {
+  const total = Date.parse(endsAt) - Date.parse(new Date())
+  const seconds = Math.floor((total / 1000) % 60)
+  const minutes = Math.floor((total / 1000 / 60) % 60)
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24)
+  const days = Math.floor(total / (1000 * 60 * 60 * 24))
+
+  return {
+    seconds: pad(seconds),
+    minutes: pad(minutes),
+    hours: pad(hours),
+    days: days
+  }
+}
+
+function pad(num) {
+  num = num.toString()
+  while (num.length < 2) num = '0' + num
+  return num
 }
