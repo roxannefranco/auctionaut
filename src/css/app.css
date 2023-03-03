@@ -209,3 +209,17 @@ input[type='number'] {
 .listing-timer {
   @apply flex items-center border-t p-3 gap-1;
 }
+
+.center-form {
+  max-width: 570px;
+  width: calc(100% - 20px);
+  @apply mx-auto;
+}
+
+.labels {
+  @apply text-slate-500 mb-1 block text-sm font-[var(--textfont)];
+}
+
+.listing-inputs {
+  @apply text-slate-500 h-10 rounded-md border block outline-none text-sm px-2 mb-5 w-full focus:border-violet-500 focus:shadow focus:shadow-violet-200;
+}
