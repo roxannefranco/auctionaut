@@ -1,4 +1,5 @@
 import { findTime } from './blocks/listingPanel.mjs'
+import newListing from './api/new.mjs'
 
 /**
  * Checks if User is logged in
@@ -73,22 +74,26 @@ export function updateDeadline() {
     const deadlines = document.querySelectorAll('.deadline')
     deadlines.forEach(function (deadline) {
       const endsAt = deadline.dataset.end
-      const time = findTime(endsAt)
-      // update days
-      const days = deadline.querySelector('.days')
-      days.innerHTML = time.days
 
-      // update hours
-      const hours = deadline.querySelector('.hours')
-      hours.innerHTML = time.hours
+      // check if listing has not ended yet
+      if (Date.parse(endsAt) >= Date.parse(new Date())) {
+        const time = findTime(endsAt)
+        // update days
+        const days = deadline.querySelector('.days')
+        days.innerHTML = time.days
 
-      // update minutes
-      const minutes = deadline.querySelector('.minutes')
-      minutes.innerHTML = time.minutes
+        // update hours
+        const hours = deadline.querySelector('.hours')
+        hours.innerHTML = time.hours
 
-      // update seconds
-      const seconds = deadline.querySelector('.seconds')
-      seconds.innerHTML = time.seconds
+        // update minutes
+        const minutes = deadline.querySelector('.minutes')
+        minutes.innerHTML = time.minutes
+
+        // update seconds
+        const seconds = deadline.querySelector('.seconds')
+        seconds.innerHTML = time.seconds
+      }
     })
   }, 1000)
 }

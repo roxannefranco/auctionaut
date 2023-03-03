@@ -111,6 +111,8 @@ export function listingPanelSimplified(listing, profile) {
     avatar = profile.avatar
   }
 
+  console.log(listing)
+
   // Check if listing has media
   let media = '/img/nomedia.jpg'
   if (listing.media.length) {
@@ -123,8 +125,15 @@ export function listingPanelSimplified(listing, profile) {
     description = description.slice(0, 97) + '...'
   }
 
-  // find initial time
-  const deadline = findTime(listing.endsAt)
+  // check if listing has ended
+  let timer = ''
+  if (Date.parse(listing.endsAt) < Date.parse(new Date())) {
+    timer = 'Game Over! Listing ended.'
+  } else {
+    // find initial time
+    const deadline = findTime(listing.endsAt)
+    timer = `<span class="days">${deadline.days}</span><span>:</span><span class="hours">${deadline.hours}</span><span>:</span><span class="minutes">${deadline.minutes}</span><span>:</span><span class="seconds">${deadline.seconds}</span>`
+  }
 
   return `
     <div class="listing-container listing-container-profile">
@@ -142,7 +151,7 @@ export function listingPanelSimplified(listing, profile) {
       <div class="listing-timer">
         <span class="text-slate-500 text-sm">Ends in:</span>
         <span class="text-slate-500 font-bold text-sm deadline" data-end="${listing.endsAt}">
-          <span class="days">${deadline.days}</span><span>:</span><span class="hours">${deadline.hours}</span><span>:</span><span class="minutes">${deadline.minutes}</span><span>:</span><span class="seconds">${deadline.seconds}</span>
+         ${timer}
         </span>
       </div>
     </div>
