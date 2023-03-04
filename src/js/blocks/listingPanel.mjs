@@ -73,16 +73,15 @@ export function listingPanel(listing) {
   const deadline = findTime(listing.endsAt)
 
   return `
-    <div class="listing-container">
-
+    <a href="single.html?id=${listing.id}" class="listing-container">
       <div class="listing-content">
         <img class="listing-img" src="${media}" alt="${listing.title}">
         <h3 class="title-primary">${listing.title}</h3>
         <p class="listing-bio">${description}</p>
-        <a href="profile.html?name=${listing.seller.name}" class="seller-link">
+        <div class="seller">
           <img class="listings-avatar" src="${avatar}" alt="${listing.seller.name}">
           <span class="listings-details">@${listing.seller.name}</span>
-        </a>  
+        </div>  
       </div>
 
       <div class="listing-timer">
@@ -95,7 +94,7 @@ export function listingPanel(listing) {
       <div class="listing-bidding">
         ${bidContent}
       </div>
-    </div>
+    </a>
     `
 }
 
@@ -136,7 +135,7 @@ export function listingPanelSimplified(listing, profile) {
   }
 
   return `
-    <div class="listing-container listing-container-profile">
+    <a href="single.html?id=${listing.id}" class="listing-container listing-container-profile">
 
       <div class="listing-content">
         <img class="listing-img" src="${media}" alt="${listing.title}">
@@ -154,7 +153,7 @@ export function listingPanelSimplified(listing, profile) {
          ${timer}
         </span>
       </div>
-    </div>
+    </a>
     `
 }
 
