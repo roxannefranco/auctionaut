@@ -225,7 +225,7 @@ input[type='number'] {
 }
 
 .gallery-side {
-  @apply flex-1 border border-slate-200 rounded p-3 relative;
+  @apply w-[600px] border border-slate-200 rounded p-3 relative;
 }
 
 .gallery-container {
@@ -251,4 +251,12 @@ input[type='number'] {
 
 .gallery-btns button {
   @apply w-8 h-8 flex items-center justify-center rounded-md border border-slate-200 bg-white hover:bg-slate-200;
+}
+
+.timer-container {
+  @apply absolute -bottom-3 left-0 right-0 flex justify-center;
+}
+
+.single-listing-timer {
+  @apply bg-white rounded-full shadow-lg px-6 py-2;
 }

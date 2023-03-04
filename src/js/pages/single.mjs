@@ -1,6 +1,7 @@
 import '../../css/app.css'
 import loadListing from '../api/single.mjs'
 import gallery from '../blocks/gallery.mjs'
+import { updateDeadline } from '../functions.mjs'
 
 const urlParams = new URLSearchParams(window.location.search)
 let id = null
@@ -20,6 +21,7 @@ async function load(id) {
 
   // load buttons actions
   changeButtonsAction(listing.media.length)
+  updateDeadline()
 }
 
 /**
