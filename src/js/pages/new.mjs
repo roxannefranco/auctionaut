@@ -32,7 +32,6 @@ form.onsubmit = async function (event) {
   }
 
   const response = await newListing(data)
-  console.log(response)
 
   if ('errors' in response) {
     const errorsContainer = document.querySelector('#errors-container')

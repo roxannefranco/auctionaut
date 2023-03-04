@@ -10,6 +10,41 @@
     <!--HEADER: loaded by js-->
     <header class="border-b border-slate-200 py-3"></header>
 
+    <div class="center-form mt-8">
+      <!--UPDATE LISTING FORM-->
+      <h1 class="main-title">Update Listing</h1>
+      <form id="listing-form">
+        <!--TITLE INPUT-->
+        <label class="labels">Title</label>
+        <input required id="listing-title" class="listing-inputs" type="text" />
+        <!--DESCRIPTION INPUT-->
+        <label class="labels">Description</label>
+        <textarea
+          id="listing-description"
+          class="listing-inputs resize-none !py-2 !h-[140px]"
+        ></textarea>
+
+        <!--MEDIA INPUTS-->
+        <div class="flex items-center">
+          <label class="labels">Images</label
+          ><span class="labels !text-slate-400 ml-2">(up to 4 images)</span>
+        </div>
+        <input type="text" id="listing-media-1" class="listing-inputs !mb-2" />
+        <input type="text" id="listing-media-2" class="listing-inputs !mb-2" />
+        <input type="text" id="listing-media-3" class="listing-inputs !mb-2" />
+        <input type="text" id="listing-media-4" class="listing-inputs" />
+        <div id="errors-container"></div>
+        <div class="flex">
+          <button type="submit" class="btn btn-primary mb-6">
+            Save changes
+          </button>
+          <button type="button" id="delete-btn" class="btn btn-secondary mb-6">
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
+
     <script type="module" src="js/blocks/header.mjs"></script>
     <script type="module" src="js/pages/edit.mjs"></script>
   </body>
