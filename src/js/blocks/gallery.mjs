@@ -12,6 +12,14 @@ export default function gallery(images, endsAt) {
     `
   })
 
+  if (!images.length) {
+    imgs += `
+        <div class="image">
+            <img src="img/nomedia.jpg" alt="no media">
+        </div>
+    `
+  }
+
   // check if it needs next+prev buttons
   let buttons = ''
   if (images.length > 1) {
@@ -42,7 +50,7 @@ export default function gallery(images, endsAt) {
         ${buttons}
         <div class="timer-container">
             <div class="single-listing-timer">
-                <span class="text-slate-600 font-bold text-3xl deadline" data-end="${endsAt}">
+                <span class="text-slate-600 font-bold text-2xl md:text-3xl deadline" data-end="${endsAt}">
                 ${timer}
                 </span>
             </div>

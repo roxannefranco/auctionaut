@@ -199,7 +199,7 @@ input[type='number'] {
 }
 
 .main-title {
-  @apply text-slate-600 font-bold text-3xl mb-6 mt-3;
+  @apply text-slate-600 font-bold text-2xl md:text-3xl mb-6 mt-3;
 }
 
 #header-avatar {
@@ -225,11 +225,11 @@ input[type='number'] {
 }
 
 .gallery-side {
-  @apply w-[600px] border border-slate-200 rounded p-3 relative;
+  @apply mx-auto md:w-2/3 lg:w-[600px] border border-slate-200 rounded p-3 relative;
 }
 
 .gallery-container {
-  @apply relative h-[500px];
+  @apply relative h-[300px] lg:h-[500px];
 }
 
 .gallery-container .images {
@@ -262,5 +262,37 @@ input[type='number'] {
 }
 
 .content-side {
-  @apply flex-1;
+  @apply md:w-2/3 mx-auto mt-10 lg:mt-0 lg:w-full flex-1;
+}
+
+.btn-edit {
+  @apply uppercase text-sm text-slate-500;
+}
+
+.bidder {
+  @apply flex items-center mb-3;
+}
+
+.bidder svg {
+  @apply opacity-50 h-5 w-5;
+}
+
+.bidded-amount {
+  @apply text-slate-500 text-sm font-bold;
+}
+
+.bidder-name {
+  @apply text-slate-500 text-sm mr-2;
+}
+
+.highest-bid {
+  @apply flex items-center;
+}
+
+.listing-left-block {
+  @apply block;
+}
+
+.highest-bid svg {
+  @apply h-10 w-10;
 }

@@ -41,9 +41,14 @@ export default function loadContentSide(listing) {
   const user = getUser()
 
   if (user != null) {
-    bidContent = `<div class="listing-left">
-       <span class="text-slate-500">Highest bid</span>
-      <span class="text-slate-500">${bids[0].amount}</span>
+    bidContent = `<div class="listing-left-block">
+       <span class="text-slate-500 text-xs uppercase">Highest bid</span>
+       <div class="highest-bid">
+         <span class="credits">${credits}</span>
+          <span class="text-violet-500 text-xl font-bold">${
+            bids[0].amount
+          } credits</span>
+      </div>
     </div>
 
     <div class="listing-right">
@@ -71,7 +76,7 @@ export default function loadContentSide(listing) {
   let history = ''
   bids.map(function (bid) {
     history += `
-    <li>
+    <li class="bidder">
       <span class="bidder-name">@${bid.bidderName}</span>
       ${credits}
       <span class="bidded-amount">${bid.amount} credits</span>
@@ -81,21 +86,22 @@ export default function loadContentSide(listing) {
 
   return `
   <div>
-    <div>
-      <h1 class="title">${listing.title}</h1>
-      <a href="edit.html?id=${listing.id}">Edit</a>
+    <div class="flex items-center mb-3">
+      <h1 class="main-title !my-0 flex-1">${listing.title}</h1>
+      <a class="btn btn-secondary btn-edit" href="edit.html?id=${listing.id}">Edit</a>
     </div>
-    <p class="description">${listing.description}</p>
+    <p class="description text-sm text-slate-500">${listing.description}</p>
     <a href="profile.html?name=${listing.seller.name}" class="seller">
       <img class="listings-avatar" src="${avatar}" alt="${listing.seller.name}">
       <span class="listings-details">@${listing.seller.name}</span>
     </a>
   </div>
 
-  <div class="listing-bidding">
+  <div class="listing-bidding mt-6 !px-0">
      ${bidContent}
   </div>
 
+  <h3 class="uppercase text-slate-500 border-t border-slate-500 pt-6 mb-3 text-xs">History</h3>
   <ul class="bids-history">${history}</ul>
   `
 }

@@ -5,5 +5,5 @@ module.exports = {
     extend: {}
   },
   plugins: [],
-  safelist: ['inline-block']
+  safelist: ['inline-block', '!my-0', '!px-0', 'mt-6', 'text-xs', 'pt-6']
 }
