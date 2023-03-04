@@ -55,7 +55,7 @@ form.onsubmit = async function (event) {
 
   if ('errors' in response) {
     const errorsContainer = document.querySelector('#errors-container')
-    errors.classList.remove('hidden')
+    errorsContainer.classList.remove('hidden')
     const { errors } = response
     errorsContainer.innerHTML = ''
     errors.map(function (error) {

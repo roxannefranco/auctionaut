@@ -1,7 +1,9 @@
 import '../../css/app.css'
 import loadListing from '../api/single.mjs'
 import gallery from '../blocks/gallery.mjs'
+import loadContentSide from '../blocks/singleContent.mjs'
 import { updateDeadline } from '../functions.mjs'
+import addBid from '../api/addBid.mjs'
 
 const urlParams = new URLSearchParams(window.location.search)
 let id = null
@@ -22,6 +24,13 @@ async function load(id) {
   // load buttons actions
   changeButtonsAction(listing.media.length)
   updateDeadline()
+
+  // load content side
+  const content = loadContentSide(listing)
+  const contentSide = document.querySelector('.content-side')
+  contentSide.innerHTML = content
+
+  setOnClick()
 }
 
 /**
@@ -72,6 +81,27 @@ function changeButtonsAction(total) {
         block: 'nearest',
         inline: 'start'
       })
+    }
+  }
+}
+
+/**
+ * sets onclick events for new bid btns
+ */
+function setOnClick() {
+  const btn = document.querySelector('.bid-btn')
+
+  btn.onclick = async function () {
+    const input = document.querySelector(`[data-id="${id}"]`)
+    const amount = input.value
+    const data = await addBid(id, amount)
+
+    // Check for errors
+    if ('errors' in data && data.errors.length) {
+      window.alert(data.errors[0].message)
+    } else {
+      load(id)
+      window.alert('Nice! You have the latest bid!')
     }
   }
 }

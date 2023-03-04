@@ -14,7 +14,7 @@ export default function gallery(images, endsAt) {
 
   // check if it needs next+prev buttons
   let buttons = ''
-  if (images.length) {
+  if (images.length > 1) {
     buttons = `
     <div class="gallery-btns">
         <button id="prev">${left}</button>
