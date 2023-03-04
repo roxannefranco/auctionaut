@@ -16,21 +16,14 @@
       <form id="listing-form">
         <!--TITLE INPUT-->
         <label class="labels">Title</label>
-        <input equired id="listing-title" class="listing-inputs" type="text" />
+        <input required id="listing-title" class="listing-inputs" type="text" />
         <!--DESCRIPTION INPUT-->
         <label class="labels">Description</label>
         <textarea
           id="listing-description"
           class="listing-inputs resize-none !py-2 !h-[140px]"
         ></textarea>
-        <!--DATE INPUT-->
-        <label class="labels">End date</label>
-        <input
-          required
-          type="date"
-          id="listing-date"
-          class="listing-inputs !max-w-[250px]"
-        />
+
         <!--MEDIA INPUTS-->
         <div class="flex items-center">
           <label class="labels">Images</label
@@ -45,7 +38,9 @@
           <button type="submit" class="btn btn-primary mb-6">
             Save changes
           </button>
-          <button type="submit" class="btn btn-secondary mb-6">Delete</button>
+          <button type="button" id="delete-btn" class="btn btn-secondary mb-6">
+            Delete
+          </button>
         </div>
       </form>
     </div>
