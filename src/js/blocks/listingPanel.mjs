@@ -72,8 +72,8 @@ export function listingPanel(listing) {
   const deadline = findTime(listing.endsAt)
 
   return `
-    <a href="single.html?id=${listing.id}" class="listing-container">
-      <div class="listing-content">
+    <div class="listing-container">
+      <a href="single.html?id=${listing.id}" class="listing-content">
         <img class="listing-img" src="${media}" alt="${listing.title}">
         <h3 class="title-primary">${listing.title}</h3>
         <p class="listing-bio">${description}</p>
@@ -81,19 +81,19 @@ export function listingPanel(listing) {
           <img class="listings-avatar" src="${avatar}" alt="${listing.seller.name}">
           <span class="listings-details">@${listing.seller.name}</span>
         </div>  
-      </div>
+      </a>
 
-      <div class="listing-timer">
+      <a href="single.html?id=${listing.id}" class="listing-timer">
         <span class="text-slate-500 text-sm">Ends in:</span>
         <span class="text-slate-500 font-bold text-sm deadline" data-end="${listing.endsAt}">
           <span class="days">${deadline.days}</span><span>:</span><span class="hours">${deadline.hours}</span><span>:</span><span class="minutes">${deadline.minutes}</span><span>:</span><span class="seconds">${deadline.seconds}</span>
         </span>
-      </div>
+      </a>
 
       <div class="listing-bidding">
         ${bidContent}
       </div>
-    </a>
+    </div>
     `
 }
 
@@ -108,8 +108,6 @@ export function listingPanelSimplified(listing, profile) {
   if (profile.avatar != '' && profile.avatar != null) {
     avatar = profile.avatar
   }
-
-  console.log(listing)
 
   // Check if listing has media
   let media = '/img/nomedia.jpg'
