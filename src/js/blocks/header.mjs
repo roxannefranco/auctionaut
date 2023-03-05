@@ -19,7 +19,10 @@ if (user != null) {
 } else {
   actionsContent = ` 
     <a href="login.html" class="btn btn-secondary">Sign in</a>
-    <a href="register.html" class="btn btn-primary">Register</a>`
+    <div class="hidden sm:flex">
+      <a href="register.html" class="btn btn-primary">Register</a>
+    </div>
+    `
 }
 
 // selecting header element

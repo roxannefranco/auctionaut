@@ -12,6 +12,8 @@ module.exports = {
     'mt-6',
     'text-xs',
     'pt-6',
-    'justify-between'
+    'justify-between',
+    'hidden',
+    'sm:flex'
   ]
 }
