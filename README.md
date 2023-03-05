@@ -9,27 +9,28 @@ Developed as my Semester Project as a second year student of Front-end Developme
 
 ## Description
 
-Gamernaut is an Auction website thought for the Gaming Community and anyone interested in old and new games, consoles, gaming accessories and anything gaming related. 
+Gamernaut is an Auction website thought for the Gaming Community and anyone interested in old and new games, consoles, gaming accessories and anything gaming related.
 Gamernaut welcomes all age groups and genders to explore the gaming universe!
-The goal of the website is to have a visitor on the landing page to view and search for listings but asked to register or log in in case the user tries to bid on a listing. 
+The goal of the website is to have a visitor on the landing page to view and search for listings but asked to register or log in in case the user tries to bid on a listing.
 Once authenticated, the user can see his 1000 starting credits and create, edit and delete his own listings or bid on someone else’s listing.
 The user will see the bid’s history, author and also his own profile with his listings.
 
 Process includes:
 
 - Wireframe and Prototyping using Figma;
-- Developed with ```HTML```, ```CSS```, ```JAVASCRIPT```;
+- Developed with `HTML`, `CSS`, `JAVASCRIPT`;
 - Every screen size being responsive;
 - User testing.
 
 ## Built With
 
 - Figma;
-- ```HTML```;
-- ```CSS```;
-- ```JAVASCRIPT```.
+- `HTML`;
+- `CSS`;
+- `JAVASCRIPT`.
 
 ## Project Grade
+
 not graded yet
 
 ## Getting Started
@@ -41,11 +42,13 @@ not graded yet
 ```bash
 git clone https://github.com/roxannefranco/gamernaut
 ```
+
 2. Install packages:
 
 ```bash
 npm i
 ```
+
 3. Start dev environment:
 
 ```bash
