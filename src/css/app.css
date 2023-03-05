@@ -58,6 +58,10 @@ input[type='number'] {
   @apply block;
 }
 
+.new-page .new-listing {
+  @apply hidden;
+}
+
 .center-content {
   max-width: 1180px;
   width: calc(100% - 20px);
@@ -135,7 +139,7 @@ input[type='number'] {
 }
 
 .btn-primary.new-listing {
-  @apply mr-4 fixed bottom-4 right-4 sm:static px-5 h-[40px];
+  @apply mr-4 fixed bottom-12 right-4 sm:static px-5 h-[40px];
 }
 
 .listing-container {
