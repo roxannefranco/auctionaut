@@ -18,6 +18,9 @@ async function load(id) {
   const loader = document.querySelector('.loader')
   loader.remove()
 
+  const title = document.querySelector('title')
+  title.innerHTML = listing.title + title.innerHTML
+
   // get gallery content and add to HTML
   const galleryContent = gallery(listing.media, listing.endsAt)
   const gallerySide = document.querySelector('.gallery-side')

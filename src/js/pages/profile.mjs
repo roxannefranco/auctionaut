@@ -31,6 +31,9 @@ async function loadProfile() {
   username.innerHTML = `@${profile.name}`
   email.innerHTML = profile.email
 
+  const title = document.querySelector('title')
+  title.innerHTML = '@' + profile.name + title.innerHTML
+
   // checks if user has avatar to display on profile
   if (profile.avatar != null && profile.avatar != '') {
     avatar.src = profile.avatar
