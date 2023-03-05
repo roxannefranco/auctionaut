@@ -24,8 +24,8 @@ form.onsubmit = async function (event) {
   })
 
   const data = {
-    title: title.value,
-    description: description.value,
+    title: title.value.trim(),
+    description: description.value.trim(),
     endsAt: date.value,
     tags: ['gamernaut'],
     media: mediaArray
