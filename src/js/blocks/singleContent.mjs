@@ -26,6 +26,7 @@ export default function loadContentSide(listing) {
 
   // Check the amount of last bid
   let amount = 0
+  let totalBids = ''
   if (listing._count.bids) {
     amount = listing.bids.reduce(function (a, b) {
       if (a.amount > b.amount) {
@@ -34,6 +35,13 @@ export default function loadContentSide(listing) {
         return b
       }
     }).amount
+
+    totalBids = `
+      <span class="text-slate-500 text-xs uppercase">Highest bid</span>
+      <div class="highest-bid">
+         <span class="credits">${credits}</span>
+         <span class="text-violet-500 text-xl font-bold">${bids[0].amount} credits</span>
+      </div>`
   }
 
   // Check if user is authenticated
@@ -42,13 +50,8 @@ export default function loadContentSide(listing) {
 
   if (user != null) {
     bidContent = `<div class="listing-left-block">
-       <span class="text-slate-500 text-xs uppercase">Highest bid</span>
-       <div class="highest-bid">
-         <span class="credits">${credits}</span>
-          <span class="text-violet-500 text-xl font-bold">${
-            bids[0].amount
-          } credits</span>
-      </div>
+      
+          ${totalBids}
     </div>
 
     <div class="listing-right">
@@ -89,6 +92,14 @@ export default function loadContentSide(listing) {
     </li>
     `
   })
+
+  if (!bids.length) {
+    history += `
+    <li class="bidder">
+      <span class="bidder-name">No biddings yet.</span>
+    </li>
+    `
+  }
 
   return `
   <div>

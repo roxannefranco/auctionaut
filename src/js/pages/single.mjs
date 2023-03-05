@@ -15,6 +15,8 @@ if (urlParams.has('id')) {
 // loading existent listing content for user to update
 async function load(id) {
   const listing = await loadListing(id)
+  const loader = document.querySelector('.loader')
+  loader.remove()
 
   // get gallery content and add to HTML
   const galleryContent = gallery(listing.media, listing.endsAt)

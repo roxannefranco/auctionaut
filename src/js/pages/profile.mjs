@@ -38,6 +38,7 @@ async function loadProfile() {
 
   // add listings to html
   const addListings = document.querySelector('#listings')
+  addListings.innerHTML = ''
   profile.listings.map(function (listing) {
     addListings.innerHTML += listingPanelSimplified(listing, profile)
   })

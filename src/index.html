@@ -11,7 +11,7 @@
     <header class="border-b border-slate-200 py-3"></header>
 
     <!--LISTINGS-->
-    <div class="center-content mt-10 mb-10">
+    <div class="center-content py-10 available-height">
       <div class="relative inline-block">
         <select id="filter" autocomplete="off" class="select">
           <option value="1">Ending soon</option>
@@ -37,7 +37,9 @@
         </svg>
       </div>
 
-      <div id="listings-container" class="flex flex-wrap gap-[30px]"></div>
+      <div id="listings-container" class="flex flex-wrap gap-[30px]">
+        <div class="loader"></div>
+      </div>
     </div>
 
     <!--FOOTERR: loaded by js-->
