@@ -15,8 +15,9 @@ if (urlParams.has('id')) {
 // loading existent listing content for user to update
 async function load(id) {
   const listing = await loadListing(id)
+
   const loader = document.querySelector('.loader')
-  loader.remove()
+  loader.style.display = 'none'
 
   const title = document.querySelector('title')
   title.innerHTML = listing.title + title.innerHTML
