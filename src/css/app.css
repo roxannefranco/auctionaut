@@ -153,7 +153,7 @@ input[type='number'] {
 }
 
 .listing-img {
-  @apply mb-4 leading-3 rounded-lg w-full object-cover object-center;
+  @apply mb-4 leading-3 rounded-lg w-full h-64 object-cover object-center;
   max-height: 260px;
 }
 
@@ -207,7 +207,7 @@ input[type='number'] {
 }
 
 .listing-timer {
-  @apply flex items-center border-t p-3 gap-1;
+  @apply flex items-center border-t p-3 gap-1 mt-auto;
 }
 
 .center-form {

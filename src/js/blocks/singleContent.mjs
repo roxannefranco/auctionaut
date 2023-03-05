@@ -72,6 +72,12 @@ export default function loadContentSide(listing) {
     </div>`
   }
 
+  // check if logged in user is author of listing
+  let editButton = ''
+  if (user.name == listing.seller.name) {
+    editButton = `<a class="btn btn-secondary btn-edit" href="edit.html?id=${listing.id}">Edit</a>`
+  }
+
   // list of bids
   let history = ''
   bids.map(function (bid) {
@@ -88,7 +94,7 @@ export default function loadContentSide(listing) {
   <div>
     <div class="flex items-center mb-3">
       <h1 class="main-title !my-0 flex-1">${listing.title}</h1>
-      <a class="btn btn-secondary btn-edit" href="edit.html?id=${listing.id}">Edit</a>
+      ${editButton}
     </div>
     <p class="description text-sm text-slate-500">${listing.description}</p>
     <a href="profile.html?name=${listing.seller.name}" class="seller">

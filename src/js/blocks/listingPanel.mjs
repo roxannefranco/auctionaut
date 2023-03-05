@@ -41,7 +41,6 @@ export function listingPanel(listing) {
     </div>`
   } else {
     bidContent = `<div class="listing-left">
-      <a class="btn btn-primary btn-small" href="login.html">Login to Bid</a>
       <span class="text-slate-500">${listing._count.bids} bids</span>
     </div>
 
