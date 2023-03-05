@@ -8,11 +8,13 @@ let actionsContent = ``
 if (user != null) {
   const avatar = getAvatar()
 
-  actionsContent = `
-    <span class="credits">${credits}${user.credits}</span>
+  actionsContent = ` 
+  <span class="credits">${credits}${user.credits}</span>
     <a href="new.html" class="btn btn-primary new-listing">New Listing</a>
     <div>
-        <a href="profile.html?name=${user.name}"><img id="header-avatar" alt="user profile pic" src="${avatar}"></a>
+      <a href="profile.html?name=${user.name}"
+        ><img id="header-avatar" alt="user profile pic" src="${avatar}"
+      /></a>
     </div>`
 } else {
   actionsContent = ` 

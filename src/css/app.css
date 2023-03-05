@@ -105,7 +105,7 @@ input[type='number'] {
 }
 
 .listing-container {
-  @apply border border-slate-200 rounded-lg;
+  @apply border border-slate-200 rounded-lg hover:bg-slate-100;
   width: calc(100% / 3 - (60px / 3));
   display: flex;
   flex-direction: column;
@@ -140,8 +140,8 @@ input[type='number'] {
   @apply text-slate-500 text-sm;
 }
 
-.seller-link {
-  @apply inline-flex items-center mt-3 rounded-full hover:bg-slate-100 pr-4;
+.seller {
+  @apply inline-flex items-center mt-3;
 }
 
 .listings-avatar {
@@ -153,7 +153,7 @@ input[type='number'] {
 }
 
 .listing-img {
-  @apply mb-4 leading-3 rounded-lg w-full object-cover object-center;
+  @apply mb-4 leading-3 rounded-lg w-full h-64 object-cover object-center;
   max-height: 260px;
 }
 
@@ -199,7 +199,7 @@ input[type='number'] {
 }
 
 .main-title {
-  @apply text-slate-600 font-bold text-3xl mb-6 mt-3;
+  @apply text-slate-600 font-bold text-2xl md:text-3xl mb-6 mt-3;
 }
 
 #header-avatar {
@@ -207,7 +207,7 @@ input[type='number'] {
 }
 
 .listing-timer {
-  @apply flex items-center border-t p-3 gap-1;
+  @apply flex items-center border-t p-3 gap-1 mt-auto;
 }
 
 .center-form {
@@ -222,4 +222,77 @@ input[type='number'] {
 
 .listing-inputs {
   @apply text-slate-500 h-10 rounded-md border block outline-none text-sm px-2 mb-5 w-full focus:border-violet-500 focus:shadow focus:shadow-violet-200;
+}
+
+.gallery-side {
+  @apply mx-auto md:w-2/3 lg:w-[600px] border border-slate-200 rounded p-3 relative;
+}
+
+.gallery-container {
+  @apply relative h-[300px] lg:h-[500px];
+}
+
+.gallery-container .images {
+  @apply flex w-full h-full overflow-hidden rounded;
+}
+
+.gallery-container .image {
+  @apply h-full relative text-center;
+  flex: 0 0 100%;
+}
+
+.gallery-container img {
+  @apply absolute h-full w-full top-0 bottom-0 left-0 right-0 object-cover;
+}
+
+.gallery-btns {
+  @apply absolute top-6 left-6 flex gap-2;
+}
+
+.gallery-btns button {
+  @apply w-8 h-8 flex items-center justify-center rounded-md border border-slate-200 bg-white hover:bg-slate-200;
+}
+
+.timer-container {
+  @apply absolute -bottom-3 left-0 right-0 flex justify-center;
+}
+
+.single-listing-timer {
+  @apply bg-white rounded-full shadow-lg px-6 py-2;
+}
+
+.content-side {
+  @apply md:w-2/3 mx-auto mt-10 lg:mt-0 lg:w-full flex-1;
+}
+
+.btn-edit {
+  @apply uppercase text-sm text-slate-500;
+}
+
+.bidder {
+  @apply flex items-center mb-3;
+}
+
+.bidder svg {
+  @apply opacity-50 h-5 w-5;
+}
+
+.bidded-amount {
+  @apply text-slate-500 text-sm font-bold;
+}
+
+.bidder-name {
+  @apply text-slate-500 text-sm mr-2;
+}
+
+.highest-bid {
+  @apply flex items-center;
+}
+
+.listing-left-block {
+  @apply block;
+}
+
+.highest-bid svg {
+  @apply h-10 w-10;
 }

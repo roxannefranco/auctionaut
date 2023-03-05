@@ -8,13 +8,16 @@ import { getToken } from '../functions.mjs'
  */
 export default async function loadListing(id) {
   try {
-    const response = await fetch(`${apiUrl}/listings/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: getToken()
+    const response = await fetch(
+      `${apiUrl}/listings/${id}?_seller=true&_bids=true`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: getToken()
+        }
       }
-    })
+    )
     const data = await response.json()
     return data
   } catch (e) {
