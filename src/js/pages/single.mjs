@@ -95,18 +95,18 @@ function changeButtonsAction(total) {
  */
 function setOnClick() {
   const btn = document.querySelector('.bid-btn')
-
-  btn.onclick = async function () {
-    const input = document.querySelector(`[data-id="${id}"]`)
-    const amount = input.value
-    const data = await addBid(id, amount)
-
-    // Check for errors
-    if ('errors' in data && data.errors.length) {
-      window.alert(data.errors[0].message)
-    } else {
-      load(id)
-      window.alert('Nice! You have the latest bid!')
+  if (btn != null) {
+    btn.onclick = async function () {
+      const input = document.querySelector(`[data-id="${id}"]`)
+      const amount = input.value
+      const data = await addBid(id, amount)
+      // Check for errors
+      if ('errors' in data && data.errors.length) {
+        window.alert(data.errors[0].message)
+      } else {
+        load(id)
+        window.alert('Nice! You have the latest bid!')
+      }
     }
   }
 }

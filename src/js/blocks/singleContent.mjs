@@ -77,7 +77,7 @@ export default function loadContentSide(listing) {
 
   // check if logged in user is author of listing
   let editButton = ''
-  if (user.name == listing.seller.name) {
+  if (user != null && user.name == listing.seller.name) {
     editButton = `<a class="btn btn-secondary btn-edit" href="edit.html?id=${listing.id}">Edit</a>`
   }
 
