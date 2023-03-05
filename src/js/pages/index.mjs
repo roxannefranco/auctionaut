@@ -7,6 +7,9 @@ import { updateDeadline } from '../functions.mjs'
 const filterContainer = document.querySelector('#filter')
 filterContainer.onchange = function (event) {
   loadAndInsertListings(event.target.value)
+  // reset search
+  const searchInput = document.querySelector('.search-input')
+  searchInput.value = ''
 }
 
 /**

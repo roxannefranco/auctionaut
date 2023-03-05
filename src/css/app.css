@@ -24,6 +24,14 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+.search-input-container {
+  @apply hidden;
+}
+
+.index-page .search-input-container {
+  @apply block;
+}
+
 .center-content {
   max-width: 1180px;
   width: calc(100% - 20px);

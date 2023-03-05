@@ -42,3 +42,23 @@ header.innerHTML = `
         </div>
     </div>
 `
+
+const searchInput = document.querySelector('.search-input')
+searchInput.onkeyup = function (event) {
+  // convertion to lower case for search
+  const search = event.target.value.toLowerCase()
+  const listings = document.querySelectorAll('.listing-container')
+
+  // go through every listing
+  listings.forEach(function (listingPanel) {
+    const title = listingPanel.querySelector('.title-primary')
+    // convertion to lower case for search
+    const titleLC = title.innerHTML.toLowerCase()
+
+    if (titleLC.includes(search)) {
+      listingPanel.style.display = 'block'
+    } else {
+      listingPanel.style.display = 'none'
+    }
+  })
+}
