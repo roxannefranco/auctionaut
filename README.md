@@ -2,7 +2,8 @@
 
 ![image](https://user-images.githubusercontent.com/50967213/222969477-0223b78e-e951-4778-97c9-4f15bad6ccce.png)
 
-![image](https://user-images.githubusercontent.com/50967213/222969394-487ed025-26d5-4984-ba27-0974424fe64b.png)
+<img width="1077" alt="image" src="https://github.com/roxannefranco/gamernaut/assets/50967213/e9683ddb-494e-42ac-a969-905de5c812f9">
+
 
 An Auction Platform for listing and bidding of gaming related items such as games, consoles, gaming accessories and much more!
 Developed as my Semester Project as a second year student of Front-end Development at Noroff.
